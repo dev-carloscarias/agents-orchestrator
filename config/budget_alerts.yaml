@@ -1,0 +1,21 @@
+thresholds:
+  default:
+    warn_at:     0.70
+    critical_at: 0.85
+
+per_provider:
+  claude_sonnet:
+    warn_at:     0.60
+    critical_at: 0.80
+  claude_opus:
+    warn_at:     0.50
+    critical_at: 0.70
+  gemini_flash:
+    warn_at:     0.75
+    critical_at: 0.90
+  opencode_minimax:
+    warn_at:     0.80
+    critical_at: 0.95
+  opencode_bigpickle:
+    warn_at:     0.75
+    critical_at: 0.90

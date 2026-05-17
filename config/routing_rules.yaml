@@ -1,0 +1,12 @@
+routing:
+  planner:
+    low:        [claude_sonnet]
+    medium:     [claude_sonnet]
+    high:       [claude_sonnet]
+    extra_high: [claude_opus, claude_sonnet]   # Opus primero, Sonnet como fallback
+
+  executor:
+    low:        [gemini_flash, opencode_minimax, opencode_bigpickle]
+    medium:     [gemini_flash, opencode_minimax, opencode_bigpickle]
+    high:       [gemini_flash, opencode_minimax, opencode_bigpickle]
+    extra_high: [gemini_flash, opencode_minimax, opencode_bigpickle]

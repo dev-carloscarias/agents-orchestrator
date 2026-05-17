@@ -1,0 +1,69 @@
+providers:
+
+  claude_sonnet:
+    cli:     claude
+    type:    planner
+    priority: 1
+    model:   claude-sonnet-4-6
+    access:  subscription_pro
+    flags:   ["--print", "--allowedTools", "Read,Edit,Bash", "--output-format", "json"]
+    limits:
+      window_type:  rolling
+      window_hours: 5
+      max_requests: 80
+    timeout_seconds: 240
+
+  claude_opus:
+    cli:     claude
+    type:    planner
+    priority: 99
+    model:   claude-opus-4-6
+    access:  subscription_pro
+    flags:   ["--print", "--allowedTools", "Read,Edit,Bash", "--output-format", "json"]
+    limits:
+      window_type:  rolling
+      window_hours: 5
+      max_requests: 20
+    timeout_seconds: 360
+    note: "Solo se activa cuando el usuario selecciona extra_high explícitamente"
+
+  gemini_flash:
+    cli:     gemini
+    type:    executor
+    priority: 1
+    model:   gemini-2.0-flash
+    access:  free_api_key
+    limits:
+      window_type:  daily
+      max_requests: 1500
+      rpm:          15
+    timeout_seconds: 120
+
+  opencode_minimax:
+    cli:     opencode
+    type:    executor
+    priority: 2
+    model:   opencode/minimax-m2-5-free
+    access:  free_zen
+    flags:   ["run", "--dangerously-skip-permissions"]
+    limits:
+      window_type:  daily
+      max_requests: 300
+    timeout_seconds: 150
+    privacy_warning: true
+    known_issues:
+      - "Bug #13851: puede colgar sin --dangerously-skip-permissions"
+
+  opencode_bigpickle:
+    cli:     opencode
+    type:    executor
+    priority: 3
+    model:   opencode/big-pickle
+    access:  free_zen
+    flags:   ["run", "--dangerously-skip-permissions"]
+    limits:
+      window_type:  rolling
+      window_hours: 5
+      max_requests: 200
+    timeout_seconds: 120
+    privacy_warning: true
